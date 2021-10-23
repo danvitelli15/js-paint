@@ -1,0 +1,30 @@
+{
+  "name": "jspaint",
+  "version": "1.0.0",
+  "description": "A simple, easy to use, cross platform drawing tool.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "buildUI": "cd ui && npm run build",
+    "dev": "npx concurrently 'cd ui && npm start' 'npm run build && electron . dev'",
+    "prestart": "npm run build && npm run buildUI",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danvitelli15/js-paint.git"
+  },
+  "author": "Daniel Vitelli",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/danvitelli15/js-paint/issues"
+  },
+  "homepage": "https://github.com/danvitelli15/js-paint#readme",
+  "devDependencies": {
+    "electron": "^15.3.0"
+  },
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
