@@ -7,8 +7,8 @@ const isDevelopment = process.argv.findIndex((i) => i === "dev") >= 0;
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 700,
     // webPreferences: {
     //   preload: joinPath(__dirname, "preload.js"),
     // },
