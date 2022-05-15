@@ -1,1 +1,0 @@
-export const TOOLS_Z_INDEX_ADJUSTMET = 2000;

@@ -1,9 +1,0 @@
-an image (canvas?) is a data structure consisting of layers
-
-layers are a data structure modeling a 2d array of pixels the size of the image being worked on
-layers know the color to be stored in given index on that layer
-if the color value is null the pixel is considered to be transparent on that layer
-
-displayed color values are the color defined on the highest layer that has that index defined
-
-all canvases will have a base layer that is a predefined single base color that will be the default color that is show if no higher layer has a color defined
