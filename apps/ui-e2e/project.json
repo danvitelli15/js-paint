@@ -1,5 +1,5 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/ui-e2e",
   "sourceRoot": "apps/ui-e2e/src",
   "projectType": "application",
   "targets": {
@@ -7,7 +7,7 @@
       "executor": "@nrwl/cypress:cypress",
       "options": {
         "cypressConfig": "apps/ui-e2e/cypress.json",
-        "devServerTarget": "ui:serve:development"
+        "devServerTarget": "ui:serve"
       },
       "configurations": {
         "production": {
