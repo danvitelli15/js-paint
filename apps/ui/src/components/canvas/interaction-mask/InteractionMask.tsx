@@ -1,19 +1,29 @@
-import { Box } from '@mui/material';
 import { canvasShapeState } from '../../../model/canvas';
 import { useMemo } from 'react';
-import { useRecoilValue } from 'recoil';
-import { BaseLayerPixel } from './BaseLayerPixel';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { Box } from '@mui/material';
+import { Pixel } from '../pixel';
 import { canvasLayerZIndexRange } from '../../../constants/z-indexes';
+import { cursorLocationState } from '../../../model/surface';
 
-export const BaseLayer = () => {
+export const InteractionMask = () => {
   const { height, width } = useRecoilValue(canvasShapeState);
+  const setCursorLocaiton = useSetRecoilState(cursorLocationState);
 
   const baseLayer = useMemo(() => {
     const baseLayer = [];
     for (let x = 0; x < width; x++) {
       const column = [];
       for (let y = 0; y < height; y++) {
-        column.push(<BaseLayerPixel key={`canvas_base_${x}_${y}`} />);
+        column.push(
+          <Pixel
+            color={'#ffffff'}
+            key={`interaction_mask_${x}_${y}`}
+            opacity={0}
+            onClick={() => console.log(`[${x}, ${y}]`)}
+            onPointerEnter={() => setCursorLocaiton({ x, y })}
+          />
+        );
       }
       baseLayer.push(
         <Box
@@ -32,7 +42,9 @@ export const BaseLayer = () => {
       sx={{
         display: 'flex',
         flexDirection: 'row',
-        zIndex: canvasLayerZIndexRange.min,
+        position: 'absolute',
+        top: 0,
+        zIndex: canvasLayerZIndexRange.max,
       }}
     >
       {baseLayer}
