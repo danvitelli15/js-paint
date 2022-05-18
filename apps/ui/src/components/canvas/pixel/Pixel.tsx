@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { CanvasCoordinates, pixelLayerColorState } from '../../../model/canvas';
 import { useRecoilValue } from 'recoil';
-import { zoomMultiplierState } from 'apps/ui/src/model/surface/zoom-multiplier.state';
+import { zoomMultiplierState } from '../../../model/surface';
 
 export interface IPixelProps {
   x: number;
