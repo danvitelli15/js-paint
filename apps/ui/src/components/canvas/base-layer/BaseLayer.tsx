@@ -1,17 +1,19 @@
 import { Box } from '@mui/material';
-import { canvasBaseState } from '../../../model/canvas';
+import { canvasBaseState, canvasShapeState } from '../../../model/canvas';
 import { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
+import { BaseLayerPixel } from './BaseLayerPixel';
 
 export const BaseLayer = () => {
   const baseColor = useRecoilValue(canvasBaseState);
+  const { height, width } = useRecoilValue(canvasShapeState);
 
   const baseLayer = useMemo(() => {
     const baseLayer = [];
     for (let x = 0; x < width; x++) {
       const column = [];
       for (let y = 0; y < height; y++) {
-        column.push(<Pixel key={`canvas_base_${x}_${y}`} x={x} y={y} z={-1} />);
+        column.push(<BaseLayerPixel key={`canvas_base_${x}_${y}`} />);
       }
       baseLayer.push(
         <Box
@@ -23,5 +25,7 @@ export const BaseLayer = () => {
       );
     }
     return baseLayer;
-  }, [baseColor]);
+  }, [height, width]);
+
+  return <Box sx={{ display: 'flex', flexDirection: 'row' }}>{baseLayer}</Box>;
 };
