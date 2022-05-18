@@ -1,7 +1,7 @@
-import { Box, createTheme, CssBaseline } from '@mui/material';
+import { createTheme, CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import { RecoilRoot } from 'recoil';
-import { Canvas } from './components';
+import { Canvas, InformationPane } from './components';
 
 const theme = createTheme({ palette: { mode: 'dark' } });
 
@@ -10,14 +10,8 @@ export function App() {
     <RecoilRoot>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box
-          sx={{
-            height: '100vh',
-            width: '100vw',
-          }}
-        >
-          <Canvas />
-        </Box>
+        <Canvas />
+        <InformationPane />
       </ThemeProvider>
     </RecoilRoot>
   );

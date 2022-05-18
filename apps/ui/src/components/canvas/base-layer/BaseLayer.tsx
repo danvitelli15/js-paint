@@ -1,11 +1,10 @@
 import { Box } from '@mui/material';
-import { canvasBaseState, canvasShapeState } from '../../../model/canvas';
+import { canvasShapeState } from '../../../model/canvas';
 import { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { BaseLayerPixel } from './BaseLayerPixel';
 
 export const BaseLayer = () => {
-  const baseColor = useRecoilValue(canvasBaseState);
   const { height, width } = useRecoilValue(canvasShapeState);
 
   const baseLayer = useMemo(() => {
