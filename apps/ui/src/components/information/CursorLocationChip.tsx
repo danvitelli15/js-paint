@@ -3,7 +3,7 @@ import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
 import { useRecoilValue } from 'recoil';
 import { cursorLocationState } from '../../model/surface';
 
-export const CursorLocation = () => {
+export const CursorLocationChip = () => {
   const cursorLocation = useRecoilValue(cursorLocationState);
 
   return (
@@ -11,7 +11,7 @@ export const CursorLocation = () => {
       variant="filled"
       color="info"
       icon={<EditLocationAltIcon />}
-      label={`[${cursorLocation.x}, ${cursorLocation.y}]`}
+      label={`[${cursorLocation.x + 1}, ${cursorLocation.y + 1}]`}
       sx={{ marginRight: 1 }}
     />
   );

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { informationPaneZIndexRange } from '../../constants/z-indexes';
-import { CursorLocation } from './CursorLocation';
+import { CursorLocationChip } from './CursorLocationChip';
 import { WindowDimensionChip } from './WindowDimensionChip';
 
 export const InformationPane = () => {
@@ -14,7 +14,7 @@ export const InformationPane = () => {
       }}
     >
       <WindowDimensionChip />
-      <CursorLocation />
+      <CursorLocationChip />
     </Box>
   );
 };

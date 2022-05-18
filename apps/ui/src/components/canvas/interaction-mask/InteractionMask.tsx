@@ -35,10 +35,11 @@ export const InteractionMask = () => {
       );
     }
     return baseLayer;
-  }, [height, width]);
+  }, [height, width, setCursorLocaiton]);
 
   return (
     <Box
+      component={'div'}
       sx={{
         display: 'flex',
         flexDirection: 'row',
@@ -46,6 +47,7 @@ export const InteractionMask = () => {
         top: 0,
         zIndex: canvasLayerZIndexRange.max,
       }}
+      onPointerLeave={() => setCursorLocaiton({ x: -1, y: -1 })}
     >
       {baseLayer}
     </Box>
