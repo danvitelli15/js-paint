@@ -1,4 +1,4 @@
-import { createTheme, CssBaseline } from '@mui/material';
+import { Box, createTheme, CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import { RecoilRoot } from 'recoil';
 import { Canvas } from './components';
@@ -10,7 +10,14 @@ export function App() {
     <RecoilRoot>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Canvas />
+        <Box
+          sx={{
+            height: '100vh',
+            width: '100vw',
+          }}
+        >
+          <Canvas />
+        </Box>
       </ThemeProvider>
     </RecoilRoot>
   );

@@ -1,4 +1,7 @@
 import { Box } from '@mui/material';
+import { CanvasCoordinates, pixelLayerColorState } from '../../../model/canvas';
+import { useRecoilValue } from 'recoil';
+import { zoomMultiplierState } from 'apps/ui/src/model/surface/zoom-multiplier.state';
 
 export interface IPixelProps {
   x: number;
@@ -7,9 +10,15 @@ export interface IPixelProps {
 }
 
 export const Pixel = ({ x, y, z }: IPixelProps) => {
+  const color = useRecoilValue(
+    pixelLayerColorState(new CanvasCoordinates(x, y, z))
+  );
+  const size = useRecoilValue(zoomMultiplierState);
+
   return (
-    <Box component={'span'}>
-      {x}, {y}, {z}
-    </Box>
+    <Box
+      component={'span'}
+      sx={{ backgroundColor: color, height: `${size}px`, width: `${size}px` }}
+    />
   );
 };

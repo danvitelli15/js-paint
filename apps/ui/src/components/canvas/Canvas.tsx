@@ -3,7 +3,7 @@ import { BaseLayer } from './base-layer/BaseLayer';
 
 export const Canvas = () => {
   return (
-    <Box>
+    <Box sx={{ margin: 'auto' }}>
       <BaseLayer />
     </Box>
   );
