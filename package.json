@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "build": "nx build",
+    "build:all": "nx run-many --target=build --all=true",
     "dev:ui": "nx serve ui",
+    "gh-pages": "gh-pages -d dist",
     "start": "nx serve",
     "test": "nx test"
   },
