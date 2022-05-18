@@ -1,13 +1,15 @@
 import { Chip } from '@mui/material';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import { useSurfaceDimensions } from '../../model/surface';
 
 export const WindowDimensionChip = () => {
-  const text = `${window.innerWidth} x ${window.innerHeight}`;
+  const surfaceDimentions = useSurfaceDimensions();
+
   return (
     <Chip
       color="info"
       icon={<AspectRatioIcon />}
-      label={text}
+      label={`${surfaceDimentions.width} x ${surfaceDimentions.height}`}
       sx={{ marginRight: 1 }}
       variant="filled"
     />
