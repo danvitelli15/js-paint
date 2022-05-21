@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { MouseEventHandler, PointerEventHandler } from 'react';
 import { useRecoilValue } from 'recoil';
-import { zoomMultiplierState } from '../../../model/surface';
+import { canvasZoomMultiplierSelector } from '../../../model/surface';
 
 export interface IPixelProps {
   color: string;
@@ -16,7 +16,7 @@ export const Pixel = ({
   onClick,
   onPointerEnter,
 }: IPixelProps) => {
-  const size = useRecoilValue(zoomMultiplierState);
+  const size = useRecoilValue(canvasZoomMultiplierSelector);
 
   return (
     <Box
